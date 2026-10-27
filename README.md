@@ -1,6 +1,6 @@
 # Corvus — Ghost in the Machine
 
-> *An intelligence beyond the veil.*
+> *Meet the ghosts of intelligence with open AI.*
 
 Corvus is a local-first AI workspace for [Ollama](https://ollama.com) and open-weight models such as Gemma. It pairs a haunted-terminal Halloween look with the marigolds and papel picado of Día de los Muertos, and it is built with plain HTML, CSS and JavaScript plus a small Python launcher that has no dependencies.
 
