@@ -6,7 +6,7 @@ Corvus is a local-first AI workspace for [Ollama](https://ollama.com) and open-w
 
 Chats stream from a model running on your own computer. There are no API keys, no accounts, no analytics and no hosted AI service involved.
 
-Built for Hacktoberfest under the theme **Ghost in the Machine**.
+Built for Hacktoberfest under the theme [Hacktoberfest Open-Source AI Challenge Week 4: Ghost in the Machine](https://dev.to/challenges/hacktoberfest-week4-2026-10-26).
 
 ---
 
