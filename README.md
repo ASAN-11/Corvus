@@ -8,6 +8,8 @@ Chats stream from a model running on your own computer. There are no API keys, n
 
 Built for Hacktoberfest under the challenge [Hacktoberfest Open-Source AI Challenge Week 4: Ghost in the Machine](https://dev.to/challenges/hacktoberfest-week4-2026-10-26).
 
+![corvus screenshot](screenshot.png)
+
 ---
 
 ## Table of contents
