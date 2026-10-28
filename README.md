@@ -104,7 +104,7 @@ Check [ollama.com/library](https://ollama.com/library) for current Gemma tags. C
 ### 2. Get Corvus
 
 ```bash
-git clone https://github.com/<your-username>/corvus.git
+git clone https://github.com/ASAN-11/corvus.git
 cd corvus
 ```
 
