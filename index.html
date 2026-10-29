@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Corvus — An intelligence beyond the veil</title>
+<meta name="theme-color" content="#08070D">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="petals" aria-hidden="true"></div>
+<header id="top"><a class="brand" href="#/" aria-label="Corvus home"><svg viewBox="0 0 150 36" height="30" role="img" aria-label="Corvus"><path d="M4 22c4-12 14-16 24-12l6 3-6 2c-1 8-8 13-17 12 3-2 4-4 4-6-4 0-8 1-11 1z" fill="#FFAA28"/><circle cx="24" cy="14" r="1.6" fill="#08070D"/><text x="42" y="25" font-family="Georgia,serif" font-size="22" letter-spacing="2" fill="#F5EAD8">CORVUS</text></svg><img data-media="logo" alt="Corvus logo" height="30"></a>
+<button id="menu" aria-label="Open menu">Menu</button>
+<nav id="tnav" aria-label="Primary"><a href="#/">Home</a><a href="#/features">Features</a><a href="#/summon">Runtime</a><a href="#/install">Documentation</a><a href="#/about">About</a><a href="#/settings">Settings</a><a class="btn pri" href="#/seance">𖤐 Ɇ₦₲ⱤɆĐɆⱤɆ ₥₳₵Ⱨł₦₳ 𖤐</a></nav></header>
+
+<main id="pub">
+<div class="view on" id="v-home">
+<section class="hero"><video data-media="heroVideo" muted loop autoplay playsinline aria-hidden="true"></video><img data-media="heroBackground" alt="Haunted laboratory with marigolds" class="bg">
+<svg class="pp" aria-hidden="true" width="100%" height="34"><defs><pattern id="pp" width="80" height="34" patternUnits="userSpaceOnUse"><path d="M2 0H38V22L34 32L30 22L26 32L22 22L18 32L14 22L10 32L6 22L2 22Z" fill="#FFAA28"/><circle cx="20" cy="10" r="4" fill="#08070D"/><path d="M42 0H78V22L74 32L70 22L66 32L62 22L58 32L54 22L50 32L46 22L42 22Z" fill="#E84A83"/><path d="M60 5l4 5-4 5-4-5z" fill="#08070D"/></pattern></defs><rect width="100%" height="34" fill="url(#pp)"/></svg>
+<div class="hc"><p class="kick">Ghost in the Machine</p><h1>Something awakens beyond the veil.</h1><p class="lede">An open intelligence. A machine of your own. No distant oracle required.</p><div class="row"><a class="btn pri" href="#/seance">Enter the Machine</a><a class="btn" href="#/archive">Explore the Archive</a></div></div></section>
+<section class="strip" aria-label="Runtime status"><span class="badge" id="b-oll"></span><span class="badge" id="b-mod"></span><span class="badge" id="b-inf"></span><span class="badge" id="b-prv"></span><span class="badge" id="b-net"></span></section>
+<section class="sec" id="features"><h2>What lives in the machine</h2><div class="grid" id="fgrid"></div></section>
+<section class="sec alt"><h2>Why an open model matters</h2><div class="cols"><p>Corvus talks to a model running through <b>Ollama</b> on your own hardware. Your prompts go to your local server, not to a hosted AI service, and you choose which installed model answers.</p><p>Once Ollama, a model and these app files are on your machine, inference needs no internet. Corvus is local-first software; the model itself has its own licence and limits, which you should read before commercial use. Open weights are not the same as fully open source.</p></div></section>
+<section class="sec"><h2>Halloween gallery</h2><div class="gal" id="g1"></div><h2>Día de los Muertos gallery</h2><div class="gal" id="g2"></div></section>
+<footer><span>Corvus v1.0.0</span><a href="https://github.com/" rel="noopener">GitHub repository</a><a href="#/install">Documentation</a><a href="#/about">Credits</a><a href="#/settings">Privacy: nothing leaves your machine except calls to your own Ollama endpoint</a></footer>
+</div>
+
+<div class="view" id="v-install">
+    <section class="sec">
+        <h2>Install and run</h2><ol class="steps">
+<li><b>Install Ollama</b> from ollama.com and start it.</li>
+<li><b>Pull a Gemma model</b> (this downloads several GB; only run it if you agree): <code>ollama pull gemma3</code>. Check ollama.com/library for current Gemma tags.</li>
+<li><b>Start Corvus.</b> Needs Python 3.8+, no packages. Run <code>scripts/start.sh</code> (macOS/Linux) or <code>scripts\start.bat</code> (Windows). It serves the app on 127.0.0.1 only and proxies a short allow-list of Ollama routes, which avoids browser CORS problems.</li>
+<li><b>Install as an app</b> from your browser's install button (PWA). A PWA is a windowed web page, not a native executable; it caches the app shell only, never model weights.</li>
+<li><b>Troubleshooting:</b> open Runtime → Test connection. "Disconnected" means Ollama isn't running or <code>OLLAMA_HOST</code> is wrong. "Model unavailable" means nothing is pulled yet. Opening index.html as a file:// page will not work; use the launcher.</li></ol>
+<p>Config: environment variables <code>OLLAMA_HOST</code> (default http://127.0.0.1:11434) and <code>PORT</code> (default 8734). Health check: <code>/health</code>.</p>
+</section>
+</div>
+</main>
+
+<div class="app" hidden><aside class="side" id="side" aria-label="Workspace"><nav id="snav"></nav><img data-media="sidebarArtwork" alt="" class="sart"></aside>
+<main class="stage"><video data-media="ambientVideos.0" class="amb" muted loop autoplay playsinline aria-hidden="true"></video>
+<section class="view" id="v-seance"><div class="chat"><div class="bar"><b id="ctitle">New séance</b><select id="msel" aria-label="Model"></select><span id="tm" class="badge"></span><button id="bsys">System prompt</button><button id="bexp">Export</button><button id="bclr">Clear</button></div><div id="msgs" aria-live="polite"></div>
+<form id="comp"><textarea id="inp" rows="1" placeholder="Speak to the machine…" aria-label="Message"></textarea><button id="send" class="btn pri">Send</button><button id="stop" type="button" class="btn" hidden>Stop</button></form></div></section>
+<section class="view pad" id="v-vault"><h2 id="vh">Memory Vault</h2><input id="vq" type="search" placeholder="Search sessions…" aria-label="Search sessions"><div id="vlist"></div><p class="note">Sessions are stored in this browser's localStorage, unencrypted. Clearing browser data erases them; use Export to back up.</p></section>
+<section class="view pad" id="v-summon"><h2>Summoning Chamber</h2><p id="sinfo"></p><div class="row"><button id="stest" class="btn pri">Test connection</button><button id="sref" class="btn">Refresh models</button></div><div id="slist"></div><p class="note">No model? Run <code>ollama pull gemma3</code> in a terminal, then refresh. Corvus never downloads models for you.</p></section>
+<section class="view pad" id="v-studio"><h2>Whisper Studio</h2><label>System instruction<input id="ysys" value="You are a concise creative assistant."></label><label>Prompt<textarea id="yp" rows="4"></textarea></label><div class="row"><label>Temperature <output id="ot">0.8</output><input id="yt" type="range" min="0" max="2" step="0.1" value="0.8"></label><label>Max tokens (num_predict)<input id="yn" type="number" value="512" min="16" max="8192"></label></div><div class="row"><button id="yrun" class="btn pri">Generate</button><button id="ystop" class="btn" hidden>Stop</button><button id="ysave" class="btn">Save output</button></div><pre id="yout" class="out"></pre><h3>Saved outputs</h3><div class="gal2" id="ysaved"></div><p class="note">Options such as temperature are passed to Ollama; support varies by model and version.</p></section>
+<section class="view pad" id="v-diag"><h2>System Diagnostics</h2><table id="dtab"></table><button id="dtest" class="btn pri">Run check</button></section>
+<section class="view pad" id="v-settings"><h2>Settings</h2><label class="ck"><input type="checkbox" id="s-hc"> High contrast</label><label class="ck"><input type="checkbox" id="s-mo"> Ambient animation (petals, flicker)</label><label class="ck"><input type="checkbox" id="s-vi"> Background video</label><label class="ck"><input type="checkbox" id="s-sb"> Collapse sidebar</label><label>Halloween ↔ Día de los Muertos<input type="range" id="s-w" min="0" max="100"></label><label>Font size<input type="range" id="s-fs" min="14" max="22"></label><label>Ollama endpoint (blank = this server's proxy)<input id="s-ep" placeholder="http://127.0.0.1:11434"></label><div class="row"><button id="s-exp" class="btn">Export all data</button><button id="s-clr" class="btn danger">Delete all data</button></div><p class="note">Reduced-motion system preference is always respected. A direct endpoint requires Ollama to allow this origin (OLLAMA_ORIGINS); the launcher proxy avoids that.</p></section>
+<section class="view pad" id="v-about"><h2>About the machine</h2><p>Corvus is a local-first AI workspace built with plain HTML, CSS, JavaScript and a small Python launcher. It streams chat from Ollama's <code>/api/chat</code> using an open-weight model such as Gemma. Conversations stay in your browser. Limits: you need enough RAM/VRAM for the model, browsers restrict direct local requests, and open-weight is not fully open source. Day-of-the-Dead imagery here is meant as a nod to remembrance, not horror.</p><p>Architecture: <code>index.html</code> + <code>js/app.js</code> → <code>server/server.py</code> (loopback, route allow-list) → Ollama.</p></section>
+</main></div>
+
+<dialog id="dlg"><form method="dialog"><h3 id="dt"></h3><div id="db"></div><menu><button value="cancel">Cancel</button><button id="dok" value="ok" class="btn pri">OK</button></menu></form></dialog><div id="toast" role="status"></div>
+
+<script src="js/assets.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
